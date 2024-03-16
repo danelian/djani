@@ -1,6 +1,6 @@
 :root {
   --content-width: 1160px;
-  --container-offset: 20px;
+  --container-offset: 16px;
   --container-width: calc(var(--content-width) + (var(--container-offset) * 2));
   --white-color: #ffffff;
   --black-color: #000000;
@@ -124,4 +124,124 @@ body {
 .dis-scroll {
   overflow: hidden;
   height: 100vh;
+}
+
+/* header */
+.nav-open,
+.nav-close {
+  display: none;
+}
+
+.header {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  color: var(--white-color);
+  background-color: var(--global-color);
+}
+.header__container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+.header .logo {
+  flex-shrink: 0;
+  display: inline-flex;
+  margin-right: 24px;
+  color: var(--white-color);
+  transition: color 0.3s ease;
+}
+.header .logo:hover {
+  color: #fae3ae;
+}
+
+.nav-list {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.nav-list li:not(:first-child) {
+  margin-left: 48px;
+}
+.nav-list li a {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1;
+  text-decoration: none;
+  color: var(--white-color);
+  transition: color 0.3s ease;
+}
+.nav-list li a:hover {
+  color: #fae3ae;
+}
+
+@media screen and (max-width: 1024px) {
+  .nav-list li:not(:first-child) {
+    margin-left: 28px;
+  }
+}
+@media screen and (max-width: 768px) {
+  .nav-open,
+  .nav-close {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 20px;
+    height: 20px;
+    color: var(--white-color);
+    transition: all 0.3s ease;
+    cursor: pointer;
+  }
+  .nav-close {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    color: var(--black-color);
+  }
+  .nav-close:hover {
+    color: var(--font-color);
+  }
+  .nav-menu {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 100%;
+    max-width: 100%;
+    padding: 40px 16px;
+    height: 100vh;
+    overflow-y: auto;
+    overflow-x: hidden;
+    background: var(--white-color);
+    transition: right 0.4s;
+  }
+  .nav-menu.show {
+    right: 0;
+    z-index: 1000;
+  }
+  .nav-list {
+    justify-content: center;
+    flex-direction: column;
+  }
+  .nav-list li:not(:first-child) {
+    margin-left: 0;
+  }
+  .nav-list li:not(:last-child) {
+    margin-bottom: 32px;
+  }
+  .nav-list li a {
+    display: inline-flex;
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--black-color);
+  }
+  .nav-list li a:hover {
+    color: var(--global-color);
+  }
 }/*# sourceMappingURL=style.css.map */
