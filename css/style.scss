@@ -104,7 +104,7 @@ body {
 	font-style: normal;
 	font-weight: 400;
 	font-size: 14px;
-	line-height: 1.4;
+	line-height: 1.5;
 	color: var(--font-color);
 	background: var(--white-color);
 	margin: 0;
@@ -112,7 +112,6 @@ body {
 	position: relative;
 	display: flex;
 	flex-direction: column;
-	justify-content: space-between;
 	min-height: 100vh;
 }
 
@@ -187,8 +186,7 @@ body {
 		}
 	}
 }
-
-@media screen and (max-width: 1024px) {
+@include tablet {
 	.nav {
 		&-list {
 			li {
@@ -199,7 +197,6 @@ body {
 		}
 	}
 }
-
 @media screen and (max-width: 768px) {
 	.nav-open,
 	.nav-close {
@@ -266,3 +263,104 @@ body {
 		}
 	}
 }
+/* end header */
+
+
+/* section hero */
+.hero {
+	padding-top: 32px;
+	padding-bottom: 40px;
+	// min-height: 500px;
+	&__container {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		position: relative;
+		width: 100%;
+	}
+	&__content {
+		margin: 0 -60px 0 0;
+		padding: 32px;
+		width: calc(43.1% + 60px);
+		color: var(--white-color);
+		background-color: var(--global-color);
+		z-index: 2;
+		h1 {
+			margin-top: 0;
+			margin-bottom: 16px;
+			font-family: 'Museo', sans-serif !important;
+			font-size: 32px;
+			font-weight: 900;
+			line-height: 1.33;
+			color: var(--white-color);
+		}
+		p {
+			margin-top: 16px;
+			margin-bottom: 0;
+			font-size: 16px;
+			line-height: 1.22;
+			&:not(:last-child) {
+				margin-bottom: 16px;
+			}
+		}
+	}
+	&__image {
+		width: 56.9%;
+		height: fit-content;
+		min-height: 430px;
+		img {
+			width: 100%;
+			height: fit-content;
+			object-fit: cover;
+		}
+	}
+}
+@include tablet {
+	.hero {
+		padding-top: 20px;
+		min-height: auto;
+		&__container {
+			flex-direction: column;
+		}
+		&__content {
+			margin: 0;
+			padding: 28px 24px 32px 28px;
+			width: 100%;
+			h1 {
+				margin-bottom: 12px;
+				font-size: 28px;
+			}
+			p {
+				margin-top: 12px;
+				font-size: 16px;
+				&:not(:last-child) {
+					margin-bottom: 12px;
+				}
+			}
+		}
+		&__image {
+			width: 100%;
+			aspect-ratio: 66 / 43;
+			height: auto;
+			min-height: auto;
+			img {
+				height: auto;
+			}
+		}
+	}
+}
+@include mobile {
+	.hero {
+		&__content {
+			padding: 20px 16px 20px 20px;
+			h1 {
+				margin-bottom: 12px;
+				font-size: 22px;
+			}
+			p {
+				font-size: 14px;
+			}
+		}
+	}
+}
+/* end section hero */
